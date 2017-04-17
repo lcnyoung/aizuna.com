@@ -189,6 +189,7 @@ a{
         .info3{
             @extend .info;
             height: auto;
+            position: relative;
             .find{
                 font-size: 14px;
                 line-height: 30px;
@@ -198,6 +199,8 @@ a{
                 background: #ec6c00;
                 color: #fff;
                 @include circle(4px);
+                outline: none;
+                border: none;
                 cursor: pointer;
             }
             .map{
@@ -206,9 +209,29 @@ a{
                 border: 1px dashed #CCC;
 			    display: none;
             }
+            .query{
+                width: 420px;
+                height: auto;
+                background: #fff;
+                border: 1px solid #000;
+                font-size: 13px;
+                line-height: 20px;
+                position: absolute;
+                left: 88px;;
+                top: 50px;
+                display: none;
+                cursor: pointer;
+                p{
+                    &:hover{
+                        background: #ccc;
+                    }
+                }
+            }
             textarea{
                 margin-top: -40px;
-                margin-left: 80px;
+                margin-left: 88px;
+                outline: none;
+                @include circle(4px)
             }
         }
         .red{
@@ -233,16 +256,19 @@ a{
             color: #666;
         }
         
-        .txt1{
+        .txt1{  //house name input
             width: 420px;
             @extend .publictxt;
         }
-        .txt2{
+        .txt2{  //area input
             width: 200px;
             @extend .publictxt;
             color: #666;
         }
-        .txt3{
+        .txt2-r{ //area input
+            @extend .txt2;
+        }
+        .txt3{  //house type input
             width: 74px;
             @extend .publictxt;
             font-size: 16px;
@@ -255,30 +281,33 @@ a{
         #radio{
             margin-left: 60px;
         }
-        .txt4{
+        .txt4{  //rental method selecting
             width: 119px;
             @extend .publictxt;
             color: #666;
             margin-left: 10px;
         }
-        .txt-mobi{
+        .txt4-r{
+            @extend .txt4;
+        }
+        .txt-mobi{   //mobile number input
             @extend .publictxt;
             width: 300px;
         }
         .btn{
             height: 30px;
             width: 100px;
-            background: #ec6c00;
+            background: #999;
             border: none;
             color: #fff;
             @include circle(4px);
-            cursor: pointer;
         }
-        .inp{
+        .inp{   //house area & rental price input
             width:420px;
             @extend .publictxt;
             float: left;
             margin-top: 16px;
+            margin-left: 5px;
             overflow: hidden;
             line-height: 30px;
             .inp-l{
@@ -287,6 +316,9 @@ a{
                 outline: none;
                 border: none;
             }
+            .inp-l2{
+                @extend .inp-l;
+            }
             .inp-r{
                 @extend .inp-l;
                 width: 50px;
@@ -294,6 +326,7 @@ a{
                 font-size: 16px;
                 color: #666;
             }
+            
         }
         .submit{
             width: 140px;
@@ -309,7 +342,24 @@ a{
         } 
     }
 }
-
+.warn{
+    display: block;
+    color: red;
+    font-size: 12px;
+    margin-top: -30px;
+    margin-left: 85px;
+}
+.veri1{
+    font-family: 'iconfont';
+    font-size: 16px;
+    color: #6db53d;
+}
+.veri2,.veri3,.veri-HA,.veri-RP,.veri-RM{
+    @extend .veri1;
+}
+.veri1.h,.veri2.h,.veri3.h,.veri-HA.h,.veri-RP.h,.veri-RM.h{
+    color: red;
+}
 //bottom
 
 .bottom{
