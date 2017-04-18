@@ -268,7 +268,7 @@ a{
         .txt2-r{ //area input
             @extend .txt2;
         }
-        .txt3{  //house type input
+        .txt3,.txt3-t,.txt3-w,.txt3-y{  //house type input
             width: 74px;
             @extend .publictxt;
             font-size: 16px;
@@ -327,6 +327,43 @@ a{
                 color: #666;
             }
             
+        }
+        .file{   //images uploading
+            @extend .info;
+            height: auto;
+            
+            .upload{
+                width: 100px;
+                height: 30px;
+                border: 1px dashed #ccc;
+                @include circle(4px);
+                background: #f2f2f2;
+                text-align: center;
+                line-height: 30px;
+                margin-top: -50px;
+                margin-left: 85px;
+                overflow: hidden;
+                
+            }
+            
+            .img{
+                width: 420px;
+                height: 180px;
+                margin-top: 20px;
+                margin-left: 80px;
+                border: 1px dashed #ccc;
+                display: none;
+                position: relative;
+                .close{
+                    height: auto;
+                    width: auto;
+                    line-height: 12px;
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    cursor: pointer;
+                }
+            }
         }
         .submit{
             width: 140px;

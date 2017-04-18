@@ -110,13 +110,44 @@ $(function(){
         } 
     })
     //Verifying housing type
-    var ht = /^\d+$/;
+    var ht = /^[0-9]*$/;
     $(".txt3").on("change",function(){
         var val = $(".txt3").val();
         if(!ht.test(val)){
             $(".veri3").addClass("h").html("&#xe625;")
         } else{
             $(".veri3").removeClass("h").html("&#xe600;")
+        }
+    })
+    $(".txt3-t").on("change",function(){
+        var val = $(".txt3-t").val();
+        if(!ht.test(val)){
+            $(".veri3").addClass("h").html("&#xe625;")
+        } else{
+            $(".veri3").removeClass("h").html("&#xe600;")
+        }
+    })
+    $(".txt3-w").on("change",function(){
+        var val = $(".txt3-w").val();
+        if(!ht.test(val)){
+            $(".veri3").addClass("h").html("&#xe625;")
+        } else{
+            $(".veri3").removeClass("h").html("&#xe600;")
+        }
+    })
+    $(".txt3-y").on("change",function(){
+        var val = $(".txt3-y").val();
+        if(!ht.test(val)){
+            $(".veri3").addClass("h").html("&#xe625;")
+        } else{
+            $(".veri3").removeClass("h").html("&#xe600;")
+        }
+    })
+    
+    
+    $(".info2:eq(0) input").on("change",function(){
+        if($(".txt3").val()+$(".txt3-t").val()+$(".txt3-w").val()+$(".txt3-y").val() == "0000"){
+            $(".veri3").addClass("h").html("&#xe625;")
         }
     })
     //Rental mode
@@ -165,10 +196,29 @@ $(function(){
     $(".c").on("click",function(){
         $("#c").attr("checked",false);
     })
+    //images uploading
+    $(".upload").on("click",function(){
+        $(".img").slideDown(1000);
+    })
+    $(".close").on("click",function(){
+        $(".img").slideUp(1000);
+    })
     
-    //filling the textarea infprmation
-    var a = $(".txt1").val();
-    var b = $(".txt2").find('option:selected').text();
-    var c = $(".txt2-r").find('option:selected').text();
-    var d ;
+    //filling the textarea information
+    $(window).on("change",function(){
+        var a = $(".txt1").val();
+        var b = $(".txt2").find('option:selected').text();
+        var c = $(".txt2-r").find('option:selected').text();
+        var d = $(".txt3").val();  
+        var e = $(".txt3-t").val();
+        var f = $(".txt3-w").val();
+        var g = $(".txt3-y").val();
+        var h = $(".txt4").find('option:selected').text();
+        var i = $(".txt4-r").find('option:selected').text();
+        var j = $(".inp-l").val();
+        var k = $(".inp-l2").val();
+        var l = $(".txt-mobi").val();
+        $("textarea").html("小区名称:"+a+";"+"区属板块:"+b+c+";"+"户型:"+d+"室"+e+"厅"+f+"卫"+g+"阳台"+";"+"出租形式:"+h+","+i+";"+"面积:"+j+"平方米;"+"租金:"+k+"元/月;"+"手机号码:"+l+".")
+    })
+    
 })
