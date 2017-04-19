@@ -1,4 +1,15 @@
 $(function(){ 
+    //mobi QRcode show
+    $(".mobi").on(
+        {"mouseover":function(){
+                $(".mobiaizu").show();
+            }
+        }
+    )
+    $(window).on("click",function(){
+        $(".mobiaizu").stop(true).fadeOut(500);
+    })
+    
     //citys switching
     var status = 0
     $(".iconf").on("click",function(){
@@ -62,7 +73,7 @@ $(function(){
         } else if(val == ""){
             $(".query").html("");
             $(".query").hide();
-        }
+        } 
     }
     //Looking for houses by map
     $(".find").on("click",function(){
@@ -148,6 +159,8 @@ $(function(){
     $(".info2:eq(0) input").on("change",function(){
         if($(".txt3").val()+$(".txt3-t").val()+$(".txt3-w").val()+$(".txt3-y").val() == "0000"){
             $(".veri3").addClass("h").html("&#xe625;")
+        } else if(!ht.test($(".txt3").val()) || !ht.test($(".txt3-t").val()) || !ht.test($(".txt3-w").val()) || !ht.test($(".txt3-y").val())){
+            $(".veri3").addClass("h").html("&#xe625;")
         }
     })
     //Rental mode
@@ -198,10 +211,13 @@ $(function(){
     })
     //images uploading
     $(".upload").on("click",function(){
+        $(this).hide();
         $(".img").slideDown(1000);
+        
     })
     $(".close").on("click",function(){
         $(".img").slideUp(1000);
+        $(".upload").show();
     })
     
     //filling the textarea information
@@ -218,7 +234,65 @@ $(function(){
         var j = $(".inp-l").val();
         var k = $(".inp-l2").val();
         var l = $(".txt-mobi").val();
-        $("textarea").html("小区名称:"+a+";"+"区属板块:"+b+c+";"+"户型:"+d+"室"+e+"厅"+f+"卫"+g+"阳台"+";"+"出租形式:"+h+","+i+";"+"面积:"+j+"平方米;"+"租金:"+k+"元/月;"+"手机号码:"+l+".")
+        if($("#first").attr("checked")){
+            var m = "整租"
+        } else {
+            m = ""
+        };
+        if($("#radio").attr("checked")){
+            var n = "合租"
+        } else{
+            n = ""
+        }
+        if($(".c:eq(0)").attr("checked")){
+            var o = "月付"
+        } else{
+            o = ""
+        }
+        if($(".c:eq(1)").attr("checked")){
+            var p = "季付"
+        } else{
+            p = ""
+        }
+        if($(".c:eq(2)").attr("checked")){
+            var q = "半年付"
+        } else{
+            q = ""
+        }
+        if($(".c:eq(3)").attr("checked")){
+            var r = "年付"
+        } else{
+            r = ""
+        }
+        if($("#c").attr("checked")){
+            var s = "都可以"
+        } else{
+            s = ""
+        }
+        
+        $(".textarea").html("小区名称："+a+"<br>区属板块："+b+c+"<br>户型："+d+"室 "+e+"厅 "+f+"卫 "+g+"阳台"+"<br>出租形式："+m+"，"+n+"，"+h+"，"+i+"<br>面积："+j+"平方米"+"<br>租金："+k+"元/月"+"<br>付款方式："+o+"，"+p+"，"+q+"，"+r+"，"+s+"<br>手机号码："+l)
     })
-    
+//    submit button
+//    var result;
+//    $(".submit").on("click",function(){
+//        result = $(".txt1").val()
+//        if(result == ""){
+//            $(this).val("提交失败").css({"background":"#ec6c00"})
+//        } else{
+//            $(this).val("提交成功").css({"background":"green"})
+//        } 
+//    })
+    $(".submit").bind("click",function(){
+        var tt = $('.veri1').text();
+        if($('.veri1').hasClass('h') || $('.veri2').hasClass('h') || $('.veri3').hasClass('h') || $('.veri-HA').hasClass('h') || $('.veri-RM').hasClass('h') || $('.veri-RP').hasClass('h') || $(".btn").val() == "验证失败" || $(".btn").val() == "待验证"){
+//            $('.submit').val("提交失败").css({"background":"#ec6c00"});
+//            $('.subwarn').html("部分信息有误或未填写,请完善信息后重新提交");
+            alert("提交失败,部分信息有误或未填写,请完善信息后重新提交")
+        } else{
+            
+//            $('.subwarn').html("");
+            alert("提交成功");
+            $('.submit').val("提交成功").css({"background":"green"}).attr("disabled","true");
+        }
+    })
 })

@@ -33,6 +33,10 @@
 				<p class="login"><span class="line">丨</span><span class="mobi">&#xe601</span>手机爱租</p>
 				<p class="login"><span class="line">丨</span>公寓登录</p>
 				<p class="login">用户登录</p>
+				<div class="mobiaizu">
+                    <p>请扫描下方二维码下载手机爱租客户端</p>
+				    <img src="img/QRcode.jpg" width="50%" alt="">
+				</div>
 			</div>
 		</div>
 <!--    Breadcrumb Navigation-->
@@ -76,7 +80,7 @@
                     <span class="font14">小区名称：</span>
                     <input type="text" class="txt1" placeholder="请输入小区名称">
                     <div class="query"></div>
-                    <span class="veri1"></span>
+                    <span class="veri1 h"></span>
                     <input type="text" class="find" value="地图找房">
                     <div class="map"></div>
                 </div>
@@ -99,7 +103,7 @@
                         <option value="">夫子庙</option>
                         <option value="">中华路</option>
                     </select>
-                    <span class="veri2"></span>
+                    <span class="veri2 h"></span>
                 </div>
             <!--housing type-->
                 <div class="info2">
@@ -113,13 +117,13 @@
                     <span class="font16">卫</span>
                     <input type="text" class="txt3-y">
                     <span class="font16">阳台</span>
-                    <span class="veri3"></span>
+                    <span class="veri3 h"></span>
                 </div>
             <!--Rental mode-->
                 <div class="info">
                     <span class="red">*</span>
                     <span class="font14">出租形式：</span>
-                    <input type="radio" name="choice" checked>
+                    <input type="radio" name="choice" id="first" checked>
                     <span class="font13">整租</span>
                     <input type="radio" name="choice" id="radio">
                     <span class="font13">合租</span>
@@ -135,7 +139,7 @@
                         <option value="">次卧</option>
                         <option value="">客厅</option>
                     </select>
-                    <span class="veri-RM"></span>
+                    <span class="veri-RM h"></span>
                 </div>
             <!--house area-->
                 <div class="info2">
@@ -145,7 +149,7 @@
                         <input type="text" class="inp-l" placeholder="请输入面积">
                         <input type="text" class="inp-r" value="平方米" readonly> 
                     </div>
-                    <span class="veri-HA"></span>
+                    <span class="veri-HA h"></span>
                 </div>
             <!--rental price-->
                 <div class="info2">
@@ -155,7 +159,7 @@
                         <input type="text" class="inp-l2" placeholder="请输入租金">
                         <input type="text" class="inp-r" value="元/月" readonly> 
                     </div>
-                    <span class="veri-RP"></span>
+                    <span class="veri-RP h"></span>
                 </div>
              <!--Payment method-->
                 <div class="info">
@@ -196,9 +200,10 @@
                     <span class="red">*</span>
                     <span class="font14">需求汇总：</span>
                     <br>
-                    <textarea name="" id="" cols="60" rows="5"></textarea>
+                    <div class="textarea"></div>
                 </div>
-                <div class="submit">提交</div>
+                <input type="button" class="submit" value="提交">
+                <span class="subwarn"></span>
             </div>
         </div>
 <!--    Bottom-->
@@ -224,6 +229,7 @@
                 </div>
             </div>
         </div>
+        <div class="cover"></div>
 	</body>
 </html>
 
