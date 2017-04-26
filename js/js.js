@@ -122,7 +122,7 @@ $(function(){
     })
     //Verifying housing type
     var ht = /^[0-9]*$/;
-    $(".txt3").on("change",function(){
+    $(".txt3").on("keyup",function(){
         var val = $(".txt3").val();
         if(!ht.test(val)){
             $(".veri3").addClass("h").html("&#xe625;")
@@ -130,7 +130,7 @@ $(function(){
             $(".veri3").removeClass("h").html("&#xe600;")
         }
     })
-    $(".txt3-t").on("change",function(){
+    $(".txt3-t").on("keyup",function(){
         var val = $(".txt3-t").val();
         if(!ht.test(val)){
             $(".veri3").addClass("h").html("&#xe625;")
@@ -138,7 +138,7 @@ $(function(){
             $(".veri3").removeClass("h").html("&#xe600;")
         }
     })
-    $(".txt3-w").on("change",function(){
+    $(".txt3-w").on("keyup",function(){
         var val = $(".txt3-w").val();
         if(!ht.test(val)){
             $(".veri3").addClass("h").html("&#xe625;")
@@ -146,7 +146,7 @@ $(function(){
             $(".veri3").removeClass("h").html("&#xe600;")
         }
     })
-    $(".txt3-y").on("change",function(){
+    $(".txt3-y").on("keyup",function(){
         var val = $(".txt3-y").val();
         if(!ht.test(val)){
             $(".veri3").addClass("h").html("&#xe625;")
@@ -156,7 +156,7 @@ $(function(){
     })
     
     
-    $(".info2:eq(0) input").on("change",function(){
+    $(".info2:eq(0) input").on("keyup",function(){
         if($(".txt3").val()+$(".txt3-t").val()+$(".txt3-w").val()+$(".txt3-y").val() == "0000"){
             $(".veri3").addClass("h").html("&#xe625;")
         } else if(!ht.test($(".txt3").val()) || !ht.test($(".txt3-t").val()) || !ht.test($(".txt3-w").val()) || !ht.test($(".txt3-y").val())){
@@ -182,8 +182,8 @@ $(function(){
     })
     
     //verifying house area input type
-    var ha = /^[0-9]+(.[0-9]{1,2})?$/
-    $(".inp-l").on("change",function(){
+    var ha = /^[1-9][0-9]*$/
+    $(".inp-l").on("keyup",function(){
         var val = $(".inp-l").val();
         if(!ha.test(val)){
             $(".veri-HA").addClass("h").html("&#xe625;")
@@ -192,8 +192,11 @@ $(function(){
         }
     })
     
+    
+    
+    
     //verifying rental price input type
-    $(".inp-l2").on("change",function(){
+    $(".inp-l2").on("keyup",function(){
         var val = $(".inp-l2").val();
         if(!ha.test(val)){
             $(".veri-RP").addClass("h").html("&#xe625;")
@@ -273,15 +276,7 @@ $(function(){
         $(".textarea").html("小区名称："+a+"<br>区属板块："+b+c+"<br>户型："+d+"室 "+e+"厅 "+f+"卫 "+g+"阳台"+"<br>出租形式："+m+"，"+n+"，"+h+"，"+i+"<br>面积："+j+"平方米"+"<br>租金："+k+"元/月"+"<br>付款方式："+o+"，"+p+"，"+q+"，"+r+"，"+s+"<br>手机号码："+l)
     })
 //    submit button
-//    var result;
-//    $(".submit").on("click",function(){
-//        result = $(".txt1").val()
-//        if(result == ""){
-//            $(this).val("提交失败").css({"background":"#ec6c00"})
-//        } else{
-//            $(this).val("提交成功").css({"background":"green"})
-//        } 
-//    })
+
     $(".submit").bind("click",function(){
         var tt = $('.veri1').text();
         if($('.veri1').hasClass('h') || $('.veri2').hasClass('h') || $('.veri3').hasClass('h') || $('.veri-HA').hasClass('h') || $('.veri-RM').hasClass('h') || $('.veri-RP').hasClass('h') || $(".btn").val() == "验证失败" || $(".btn").val() == "待验证"){
